@@ -14,3 +14,19 @@ body {
   overflow: hidden;
   margin: 0;
 }
+
+.yellow.active {
+  background-color: yellow;
+}
+
+.blue.active {
+  background-color: blue;
+}
+
+.highlight {
+  color: red;
+}
+
+.large {
+  font-size: 24px;
+}

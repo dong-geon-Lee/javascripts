@@ -5,6 +5,8 @@ function appInit() {
     showAndHideBtn();
     fetchDatas();
     handleFormData();
+    handleColor();
+    handleChain();
   });
 }
 
@@ -43,6 +45,32 @@ const handleFormData = () => {
   });
 };
 
-const handleColor = () => {};
+const handleColor = () => {
+  $(".active__color").click(() => {
+    $(".yellow").addClass("active");
+    $(".blue").addClass("active");
+    $(".active__color").attr("disabled", true);
+  });
+
+  $(".reset__color").click(() => {
+    $(".yellow").removeClass("active");
+    $(".blue").removeClass("active");
+    $(".active__color").attr("disabled", false);
+  });
+};
+
+const handleChain = () => {
+  $("#btn").click(() => {
+    $("#header")
+      .addClass("highlight")
+      .fadeOut("slow")
+      .fadeIn("fast")
+      .addClass("large");
+  });
+};
+
+const handleConnect = () => {
+  const color = $();
+};
 
 appInit();
