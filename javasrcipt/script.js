@@ -7,11 +7,23 @@ function appInit() {
     handleFormData();
     handleColor();
     handleChain();
+    handleConnect();
   });
 }
 
 const initializeUI = () => {
-  $("#content h1").text("JQuery로 변경된 텍스트!");
+  const texts = $("#content h1").text("JQuery로 변경된 텍스트!");
+  let clicked = false;
+
+  texts.on("click", () => {
+    if (!clicked) {
+      texts.css({ fontSize: "2rem", background: "red" });
+      clicked = true;
+    } else {
+      texts.css({ fontSize: "2rem", background: "yellow" });
+      clicked = false;
+    }
+  });
 };
 
 const setupEventHandlers = () => {
@@ -50,6 +62,7 @@ const handleColor = () => {
     $(".yellow").addClass("active");
     $(".blue").addClass("active");
     $(".active__color").attr("disabled", true);
+    // $(this).css("background-color", "green");
   });
 
   $(".reset__color").click(() => {
@@ -70,7 +83,23 @@ const handleChain = () => {
 };
 
 const handleConnect = () => {
-  const color = $();
+  const color = $(".label__data").css("color");
+  console.log(color);
+
+  const labelEl = $(".label__data");
+  labelEl.css("color", "aqua");
+  labelEl.css("border", "1px solid #000");
+
+  const textEl = $(".small__box .mind");
+  textEl.click(() => {
+    textEl.css("color", "red").css("text-decoration", "underline");
+    textEl.css({
+      fontSize: "20px",
+      fontWeight: 800,
+      border: "1px solid #000",
+      padding: "1rem",
+    });
+  });
 };
 
 appInit();
